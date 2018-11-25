@@ -1,0 +1,7 @@
+module_header_tags_cookieconsent2_title = Souhaitez-vous installer le message de consentement des cookies
+module_header_tags_cookieconsent2_description = Affiche le message de constement des cookies
+
+module_header_tags_cookieconsent2_message_text = Ce site internet utilise des cookies pour améliorer votre expérience. En continuant, vous acceptez l'usage des cookies
+module_header_tags_cookieconsent2_more_text = en savoir plus
+
+module_header_tags_cookieconsent2_dismiss_text = X
