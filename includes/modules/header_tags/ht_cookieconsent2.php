@@ -1,18 +1,19 @@
 <?php
-/**
- *
- *  @copyright 2008 - https://www.clicshopping.org
- *  @Brand : ClicShopping(Tm) at Inpi all right Reserved
- *  @Licence GPL 2 & MIT
- *  @licence MIT - Portion of osCommerce 2.4
- *  @Info : https://www.clicshopping.org/forum/trademark/
- *
- */
+  /**
+   *
+   * @copyright 2008 - https://www.clicshopping.org
+   * @Brand : ClicShopping(Tm) at Inpi all right Reserved
+   * @Licence GPL 2 & MIT
+   * @licence MIT - Portion of osCommerce 2.4
+   * @Info : https://www.clicshopping.org/forum/trademark/
+   *
+   */
 
   use ClicShopping\OM\CLICSHOPPING;
   use ClicShopping\OM\Registry;
 
-  class ht_cookieconsent2 {
+  class ht_cookieconsent2
+  {
     public $code;
     public $group;
     public $title;
@@ -20,20 +21,22 @@
     public $sort_order;
     public $enabled = false;
 
-    public function __construct() {
+    public function __construct()
+    {
       $this->code = get_class($this);
       $this->group = basename(__DIR__);
 
       $this->title = CLICSHOPPING::getDef('module_header_tags_cookieconsent2_title');
       $this->description = CLICSHOPPING::getDef('module_header_tags_cookieconsent2_description');
 
-      if ( defined('MODULE_HEADER_TAGS_COOKIECONSENT2_STATUS') ) {
+      if (defined('MODULE_HEADER_TAGS_COOKIECONSENT2_STATUS')) {
         $this->sort_order = MODULE_HEADER_TAGS_COOKIECONSENT2_SORT_ORDER;
         $this->enabled = (MODULE_HEADER_TAGS_COOKIECONSENT2_STATUS == 'True');
       }
     }
 
-    public function execute() {
+    public function execute()
+    {
       $CLICSHOPPING_Template = Registry::get('Template');
 
       $footer = '<script src="' . CLICSHOPPING::link('ext/javascript/cookieconsent2/cookieconsent.min.js', null, false) . '"></script>';
@@ -42,26 +45,29 @@
 
       $message = CLICSHOPPING::getdef('module_header_tags_cookieconsent2_message_text');
       $dismiss = CLICSHOPPING::getdef('module_header_tags_cookieconsent2_dismiss_text');
-      $more    = CLICSHOPPING::getdef('module_header_tags_cookieconsent2_more_text'); ;
-      $link    = CLICSHOPPING::link(MODULE_HEADER_TAGS_COOKIECONSENT2_PAGE, '');
-      $theme   = CLICSHOPPING::link('ext/javascript/cookieconsent2/' . MODULE_HEADER_TAGS_COOKIECONSENT2_THEME . '.css', null, false);
+      $more = CLICSHOPPING::getdef('module_header_tags_cookieconsent2_more_text');;
+      $link = CLICSHOPPING::link(MODULE_HEADER_TAGS_COOKIECONSENT2_PAGE, '');
+      $theme = CLICSHOPPING::link('ext/javascript/cookieconsent2/' . MODULE_HEADER_TAGS_COOKIECONSENT2_THEME . '.css', null, false);
 
-      $output  = <<<EOD
+      $output = <<<EOD
 <script>window.cookieconsent_options = {"message":"{$message}", "dismiss":"{$dismiss}", "learnMore":"{$more}", "link":"{$link}", "theme":"{$theme}"};</script>
 EOD;
 
       $CLICSHOPPING_Template->addBlock($output . "\n", $this->group);
     }
 
-    public function isEnabled() {
+    public function isEnabled()
+    {
       return $this->enabled;
     }
 
-    public function check() {
+    public function check()
+    {
       return defined('MODULE_HEADER_TAGS_COOKIECONSENT2_STATUS');
     }
 
-    public function install() {
+    public function install()
+    {
       $CLICSHOPPING_Db = Registry::get('Db');
 
       $CLICSHOPPING_Db->save('configuration', [
@@ -111,15 +117,17 @@ EOD;
       );
     }
 
-    function remove() {
+    function remove()
+    {
       return Registry::get('Db')->exec('delete from :table_configuration where configuration_key in ("' . implode('", "', $this->keys()) . '")');
     }
 
-    function keys() {
+    function keys()
+    {
       return array('MODULE_HEADER_TAGS_COOKIECONSENT2_STATUS',
-                   'MODULE_HEADER_TAGS_COOKIECONSENT2_THEME',
-                   'MODULE_HEADER_TAGS_COOKIECONSENT2_PAGE',
-                   'MODULE_HEADER_TAGS_COOKIECONSENT2_SORT_ORDER'
-                  );
+        'MODULE_HEADER_TAGS_COOKIECONSENT2_THEME',
+        'MODULE_HEADER_TAGS_COOKIECONSENT2_PAGE',
+        'MODULE_HEADER_TAGS_COOKIECONSENT2_SORT_ORDER'
+      );
     }
   }
