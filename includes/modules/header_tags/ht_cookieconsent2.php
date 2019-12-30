@@ -45,7 +45,7 @@
 
       $message = CLICSHOPPING::getdef('module_header_tags_cookieconsent2_message_text');
       $dismiss = CLICSHOPPING::getdef('module_header_tags_cookieconsent2_dismiss_text');
-      $more = CLICSHOPPING::getdef('module_header_tags_cookieconsent2_more_text');;
+      $more = CLICSHOPPING::getdef('module_header_tags_cookieconsent2_more_text');
       $link = CLICSHOPPING::link(MODULE_HEADER_TAGS_COOKIECONSENT2_PAGE, '');
       $theme = CLICSHOPPING::link('ext/javascript/cookieconsent2/' . MODULE_HEADER_TAGS_COOKIECONSENT2_THEME . '.css', null, false);
 
