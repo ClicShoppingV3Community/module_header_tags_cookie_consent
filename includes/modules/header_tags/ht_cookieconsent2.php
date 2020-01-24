@@ -95,7 +95,7 @@ EOD;
       $CLICSHOPPING_Db->save('configuration', [
         'configuration_title' => 'Cookie Policy Page',
         'configuration_key' => 'MODULE_HEADER_TAGS_COOKIECONSENT2_PAGE',
-        'configuration_value' => 'index.php?Info&Content&pages_id=5',
+        'configuration_value' => 'index.php?Info&Content&pagesId=5',
         'configuration_description' => 'The Page on your site that has details of your Cookie Policy.',
         'configuration_group_id' => '6',
         'sort_order' => '0',
