@@ -1,5 +1,5 @@
 
- module_header_tags_cookieconsent2_title = Do you want install Cookie Compliance Message
+ module_header_tags_cookieconsent2_title = Do you want to install Cookie Compliance Message
  module_header_tags_cookieconsent2_description = Add a Cookie Compliance Message to your site
 
  module_header_tags_cookieconsent2_message_text = This website uses cookies to improve your experience. By continuing, you agree to the usage as per our
