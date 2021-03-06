@@ -14,8 +14,8 @@
 
   class ht_cookieconsent2
   {
-    public $code;
-    public $group;
+    public string $code;
+    public string $group;
     public string $title;
     public string $description;
     public ?int $sort_order = 0;
@@ -29,7 +29,7 @@
       $this->title = CLICSHOPPING::getDef('module_header_tags_cookieconsent2_title');
       $this->description = CLICSHOPPING::getDef('module_header_tags_cookieconsent2_description');
 
-      if (defined('MODULE_HEADER_TAGS_COOKIECONSENT2_STATUS')) {
+      if (\defined('MODULE_HEADER_TAGS_COOKIECONSENT2_STATUS')) {
         $this->sort_order = MODULE_HEADER_TAGS_COOKIECONSENT2_SORT_ORDER;
         $this->enabled = (MODULE_HEADER_TAGS_COOKIECONSENT2_STATUS == 'True');
       }
@@ -63,7 +63,7 @@ EOD;
 
     public function check()
     {
-      return defined('MODULE_HEADER_TAGS_COOKIECONSENT2_STATUS');
+      return \defined('MODULE_HEADER_TAGS_COOKIECONSENT2_STATUS');
     }
 
     public function install()
